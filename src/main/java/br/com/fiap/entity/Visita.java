@@ -24,14 +24,16 @@ import javax.persistence.TemporalType;
 public class Visita {
 	
 	@Id
+	@Column(name="id_visita", nullable = false)
     @SequenceGenerator(name="visita",sequenceName="sq_t_visita",allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="visita")
-	private int id_visita;
+	private int idVisita;
 	
+	@Column(name="dt_visita", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar dt_visita;
+	private Calendar dtVisita;
 	
-	@Column(nullable = false)
+	@Column(name="vlr_total", nullable = false)
 	private double vlr_total;
 	
 		
@@ -57,8 +59,8 @@ public class Visita {
 	public Visita(int id_visita, Calendar dt_visita, double vlr_total, Estabelecimento estabelecimento,
 			Consumidor visitas, List<Pedido> pedido) {
 		super();
-		this.id_visita = id_visita;
-		this.dt_visita = dt_visita;
+		this.idVisita = id_visita;
+		this.dtVisita = dt_visita;
 		this.vlr_total = vlr_total;
 		this.visitas = visitas;
 		this.pedido = pedido;
@@ -69,19 +71,19 @@ public class Visita {
 	// ---------------------Getters And Setters------------------------
 	
 	public int getId_visita() {
-		return id_visita;
+		return idVisita;
 	}
 
 	public void setId_visita(int id_visita) {
-		this.id_visita = id_visita;
+		this.idVisita = id_visita;
 	}
 
 	public Calendar getDt_visita() {
-		return dt_visita;
+		return dtVisita;
 	}
 
 	public void setDt_visita(Calendar dt_visita) {
-		this.dt_visita = dt_visita;
+		this.dtVisita = dt_visita;
 	}
 
 	public double getVlr_total() {
@@ -107,26 +109,5 @@ public class Visita {
 	public void setPedido(List<Pedido> pedido) {
 		this.pedido = pedido;
 	}
-
-	
-
-	// --------------------- ToString------------------------
-
-
-	@Override
-	public String toString() {
-		return "Visita ["
-				+ "id_visita=" + id_visita
-				+ ", dt_visita=" + dt_visita
-				+ ", vlr_total=" + vlr_total
-				+ ", pedido=" + pedido
-				+"]";
-	}
-	
-	
-	
-	
-	
-	
 
 }

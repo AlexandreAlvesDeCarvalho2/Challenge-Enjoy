@@ -18,24 +18,27 @@ import javax.persistence.TemporalType;
 @Table(name = "t_consumidor")
 public class Consumidor {
 	
+	@Column(length = 12, nullable = false)
 	@SequenceGenerator(name = "consumidor", sequenceName = "sq_t_consumidor", allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "consumidor")
 	private int id_consumidor;
 	
 	@Id
-	@Column(length = 12, nullable = false)
-	private Long nr_telefone;
+	@Column(name="nr_telefone", length = 12, nullable = false)
+	private Long nrTelefone;
 
-	@Column(nullable = false, length = 100)
-	private String nm_consumidor;
+	@Column(name="nm_consumidor",nullable = false, length = 100)
+	private String nmConsumidor;
 
-	@Column(nullable = false, length = 40)
-	private String email_consumidor;
+	@Column(name="email_consumidor",nullable = false, length = 40)
+	private String emailConsumidor;
+	
+	@Column(name="ds_genreo",length = 12, nullable = false)
+	private String dsGenreo;
 
-	private String ds_genreo;
-
+	@Column(name="dt_nascimento")
 	@Temporal(TemporalType.DATE)
-	private Calendar dt_nascimento;
+	private Calendar dtNascimento;
 
 	
 	
@@ -52,11 +55,11 @@ public class Consumidor {
 			String ds_genreo, Calendar dt_nascimento, List<Visita> visita) {
 		super();
 		this.id_consumidor = id_consumidor;
-		this.nr_telefone = nr_telefone;
-		this.nm_consumidor = nm_consumidor;
-		this.email_consumidor = email_consumidor;
-		this.ds_genreo = ds_genreo;
-		this.dt_nascimento = dt_nascimento;
+		this.nrTelefone = nr_telefone;
+		this.nmConsumidor = nm_consumidor;
+		this.emailConsumidor = email_consumidor;
+		this.dsGenreo = ds_genreo;
+		this.dtNascimento = dt_nascimento;
 		this.visita = visita;
 	}
 
@@ -73,43 +76,43 @@ public class Consumidor {
 	}
 
 	public Long getNr_telefone() {
-		return nr_telefone;
+		return nrTelefone;
 	}
 
 	public void setNr_telefone(Long nr_telefone) {
-		this.nr_telefone = nr_telefone;
+		this.nrTelefone = nr_telefone;
 	}
 
 	public String getNm_consumidor() {
-		return nm_consumidor;
+		return nmConsumidor;
 	}
 
 	public void setNm_consumidor(String nm_consumidor) {
-		this.nm_consumidor = nm_consumidor;
+		this.nmConsumidor = nm_consumidor;
 	}
 
 	public String getEmail_consumidor() {
-		return email_consumidor;
+		return emailConsumidor;
 	}
 
 	public void setEmail_consumidor(String email_consumidor) {
-		this.email_consumidor = email_consumidor;
+		this.emailConsumidor = email_consumidor;
 	}
 
 	public String getDs_genreo() {
-		return ds_genreo;
+		return dsGenreo;
 	}
 
 	public void setDs_genreo(String ds_genreo) {
-		this.ds_genreo = ds_genreo;
+		this.dsGenreo = ds_genreo;
 	}
 
 	public Calendar getDt_nascimento() {
-		return dt_nascimento;
+		return dtNascimento;
 	}
 
 	public void setDt_nascimento(Calendar dt_nascimento) {
-		this.dt_nascimento = dt_nascimento;
+		this.dtNascimento = dt_nascimento;
 	}
 
 	public List<Visita> getVisita() {
@@ -127,11 +130,11 @@ public class Consumidor {
 	public String toString() {
 		return "Consumidor ["
 				+ "id_consumidor=" + id_consumidor
-				+ ", nr_telefone=" + nr_telefone
-				+ ", nm_consumidor=" + nm_consumidor
-				+ ", email_consumidor=" + email_consumidor
-				+ ", ds_genreo=" + ds_genreo
-				+ ", dt_nascimento=" + dt_nascimento
+				+ ", nr_telefone=" + nrTelefone
+				+ ", nm_consumidor=" + nmConsumidor
+				+ ", email_consumidor=" + emailConsumidor
+				+ ", ds_genreo=" + dsGenreo
+				+ ", dt_nascimento=" + dtNascimento
 				+ ", visita="+ visita.toString() + "]";
 	}
 	

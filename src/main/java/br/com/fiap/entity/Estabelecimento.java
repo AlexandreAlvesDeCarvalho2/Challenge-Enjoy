@@ -15,15 +15,16 @@ public class Estabelecimento {
 	
 	
 	@Id
-	@Column(length = 14, nullable = false, unique=true)
-	private String nr_cnpj;
+	@Column(name="nr_cnpj")
+	private String nrCnpj;
 	
-    @SequenceGenerator(name="estabelecimento",sequenceName="sq_t_estabelecimento",allocationSize=1)
+	@Column(name="id_estabelecimento", nullable = false )
+	@SequenceGenerator(name="estabelecimento",sequenceName="sq_t_estabelecimento",allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="estabelecimento")
-	private int id_estabelecimento;
+	private int idEstabelecimento;
 	
-	@Column(length = 50, nullable = false)
-	private String nm_estabelecimento;
+	@Column(name="nm_estabelecimento", length = 50, nullable = false)
+	private String nmEstabelecimento;
 	
 	@OneToOne(mappedBy = "estabelecimentos")
     private Visita visitas;
@@ -35,36 +36,33 @@ public class Estabelecimento {
 
 	public Estabelecimento(int id_estabelecimento, String nm_estabelecimento, String nr_cnpj) {
 		super();
-		this.id_estabelecimento = id_estabelecimento;
-		this.nm_estabelecimento = nm_estabelecimento;
-		this.nr_cnpj = nr_cnpj;
+		this.idEstabelecimento = id_estabelecimento;
+		this.nmEstabelecimento = nm_estabelecimento;
+		this.nrCnpj = nr_cnpj;
 	}
 
 	public int getId_estabelecimento() {
-		return id_estabelecimento;
+		return idEstabelecimento;
 	}
 
 	public void setId_estabelecimento(int id_estabelecimento) {
-		this.id_estabelecimento = id_estabelecimento;
+		this.idEstabelecimento = id_estabelecimento;
 	}
 
 	public String getNm_estabelecimento() {
-		return nm_estabelecimento;
+		return nmEstabelecimento;
 	}
 
 	public void setNm_estabelecimento(String nm_estabelecimento) {
-		this.nm_estabelecimento = nm_estabelecimento;
+		this.nmEstabelecimento = nm_estabelecimento;
 	}
 
 	public String getNr_cnpj() {
-		return nr_cnpj;
+		return nrCnpj;
 	}
 
 	public void setNr_cnpj(String nr_cnpj) {
-		this.nr_cnpj = nr_cnpj;
+		this.nrCnpj = nr_cnpj;
 	}
-	
-	
-	
 
 }

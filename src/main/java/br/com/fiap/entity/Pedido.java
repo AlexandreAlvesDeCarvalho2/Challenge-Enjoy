@@ -20,24 +20,26 @@ import javax.persistence.TemporalType;
 public class Pedido {
 	
 	@Id
-    @SequenceGenerator(name="pedido",sequenceName="sq_t_pedido",allocationSize=1)
+	@Column(name="id_pedido")
+	@SequenceGenerator(name="pedido",sequenceName="sq_t_pedido",allocationSize=1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="pedido")
-	private int id_pedido;
+	private int idPedido;
 	
+	@Column(name="hr_pedido", nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar hr_pedido;
+	private Calendar hrPedido;
 	
-	@Column(length = 25, nullable = false)
-	private String ds_produto;
+	@Column(name="ds_produto",length = 25, nullable = false)
+	private String dsProduto;
 	
-	@Column(length = 25, nullable = false)
-	private String ds_tipo_produto;
+	@Column(name="ds_tipo_produto", length = 25, nullable = false)
+	private String dsTipoProduto;
 	
-	@Column(nullable = false)
-	private double vl_pedido;
+	@Column(name="vl_pedido", nullable = false)
+	private double vlPedido;
 	
-	@Column(nullable = false)
-	private double qt_pedido;
+	@Column(name= "qt_pedido", nullable = false)
+	private double qtPedido;
 	
 	// --------------------- relações------------------------
 	@ManyToOne(cascade = CascadeType.PERSIST)
@@ -54,85 +56,85 @@ public class Pedido {
 	public Pedido(int id_pedido, Calendar hr_pedido, String ds_produto, String ds_tipo_produto, double vl_pedido,
 			double qt_pedido, Visita pedidos) {
 		super();
-		this.id_pedido = id_pedido;
-		this.hr_pedido = hr_pedido;
-		this.ds_produto = ds_produto;
-		this.ds_tipo_produto = ds_tipo_produto;
-		this.vl_pedido = vl_pedido;
-		this.qt_pedido = qt_pedido;
+		this.idPedido = id_pedido;
+		this.hrPedido = hr_pedido;
+		this.dsProduto = ds_produto;
+		this.dsTipoProduto = ds_tipo_produto;
+		this.vlPedido = vl_pedido;
+		this.qtPedido = qt_pedido;
 		this.pedidos = pedidos;
 	}
 
 	// ---------------------Getters and Setters------------------------
 
 	public int getId_pedido() {
-		return id_pedido;
+		return idPedido;
 	}
 
 
 
 	public void setId_pedido(int id_pedido) {
-		this.id_pedido = id_pedido;
+		this.idPedido = id_pedido;
 	}
 
 
 
 	public Calendar getHr_pedido() {
-		return hr_pedido;
+		return hrPedido;
 	}
 
 
 
 	public void setHr_pedido(Calendar hr_pedido) {
-		this.hr_pedido = hr_pedido;
+		this.hrPedido = hr_pedido;
 	}
 
 
 
 	public String getDs_produto() {
-		return ds_produto;
+		return dsProduto;
 	}
 
 
 
 	public void setDs_produto(String ds_produto) {
-		this.ds_produto = ds_produto;
+		this.dsProduto = ds_produto;
 	}
 
 
 
 	public String getDs_tipo_produto() {
-		return ds_tipo_produto;
+		return dsTipoProduto;
 	}
 
 
 
 	public void setDs_tipo_produto(String ds_tipo_produto) {
-		this.ds_tipo_produto = ds_tipo_produto;
+		this.dsTipoProduto = ds_tipo_produto;
 	}
 
 
 
 	public double getVl_pedido() {
-		return vl_pedido;
+		return vlPedido;
 	}
 
 
 
 	public void setVl_pedido(double vl_pedido) {
-		this.vl_pedido = vl_pedido;
+		this.vlPedido = vl_pedido;
 	}
 
 
 
 	public double getQt_pedido() {
-		return qt_pedido;
+		return qtPedido;
 	}
 
 
 
 	public void setQt_pedido(double qt_pedido) {
-		this.qt_pedido = qt_pedido;
+		this.qtPedido = qt_pedido;
 	}
 
 
@@ -146,22 +148,5 @@ public class Pedido {
 	public void setPedidos(Visita pedidos) {
 		this.pedidos = pedidos;
 	}
-	// ---------------------ToString------------------------
-
-	@Override
-	public String toString() {
-		return "Pedido ["
-				+ "id_pedido=" + id_pedido
-				+ ", hr_pedido=" + hr_pedido
-				+ ", ds_produto=" + ds_produto
-				+ ", ds_tipo_produto=" + ds_tipo_produto
-				+ ", vl_pedido=" + vl_pedido
-				+ ", qt_pedido=" + qt_pedido
-				+ "]";
-	}
-	
-	
-	
-	
 	
 }
