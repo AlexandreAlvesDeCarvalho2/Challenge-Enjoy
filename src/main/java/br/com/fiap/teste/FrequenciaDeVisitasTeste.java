@@ -22,7 +22,7 @@ public class FrequenciaDeVisitasTeste {
 				System.out.println("---------------------------------------------------------------------------------");
 				System.out.println("Cliente: " + entidade[0]);
 				System.out.println("Estabelecimento: " + entidade[1]);
-				System.out.println("Frequencia: " + entidade[2] + " nos ultimos 365 dias");
+				System.out.println("Frequencia: " + entidade[2] + "x nos ultimos 365 dias");
 				System.out.println("---------------------------------------------------------------------------------");
 			}
 
