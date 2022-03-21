@@ -1,5 +1,7 @@
 package br.com.fiap.teste;
 
+import java.math.BigDecimal;
+
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
@@ -17,12 +19,10 @@ public class TicketMedioTeste {
 
 			VisitaDAO dao = new VisitaDAO(em);
 
-			System.out.println("\n---------------- O Ticket Medio gasto por visita ----------------");
-			for (Object[] entidade : dao.TicketMedioGastoNoEstabelecimento(35991028674L, 38382013000145L)) {
+			System.out.println("\n---------------- O Ticket Medio gasto por visita nos ultimos 365 dias----------------");
+			for (BigDecimal entidade : dao.TicketMedioGastoNoEstabelecimento(27976332418L, 38382013000145L)) {
 				System.out.println("---------------------------------------------------------------------------------");
-				System.out.println("Cliente: " + entidade[0]);
-				System.out.println("Estabelecimento: " + entidade[1]);
-				System.out.println("Ticket Medio gasto: " + entidade[2]);
+				System.out.println("Ticket Medio gasto por visita: " + entidade);
 				System.out.println("---------------------------------------------------------------------------------");
 			}
 
