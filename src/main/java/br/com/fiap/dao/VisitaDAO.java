@@ -15,7 +15,7 @@ public class VisitaDAO extends GenericDAO<Visita, Integer> {
 	
 	// Listar a data da última visita ao estabelecimento
 	@SuppressWarnings("unchecked")
-	public List<Object[]>ListarDataUltimaVisita(Long nr_telefone, Long nrCnpj) { 
+	public List<Visita[]>ListarDataUltimaVisita(Long nr_telefone, Long nrCnpj) { 
 		String Query =
 				
 				"SELECT * FROM (SELECT c.nm_consumidor, e.nm_estabelecimento, v.dt_visita FROM T_VISITA v\r\n"
@@ -39,7 +39,7 @@ public class VisitaDAO extends GenericDAO<Visita, Integer> {
 				"select c.nm_consumidor,e.nm_estabelecimento, count(*) from t_visita v\r\n"
 				+ "join T_CONSUMIDOR c on c.nr_telefone = v.nr_telefone\r\n"
 				+ "join T_ESTABELECIMENTO e on e.nr_cnpj = v.nr_cnpj\r\n"
-				+ "where v.dt_visita > (select (CURRENT_DATE - 365) from dual)\r\n"
+				+ "where v.dt_visita >= (select (CURRENT_DATE - 365) from dual)\r\n"
 				+ "and c.nr_telefone = :nr \r\n"
 				+ "and e.nr_cnpj = :nr_cnpj\r\n"
 				+ "group by c.nm_consumidor, e.nm_estabelecimento";
@@ -57,7 +57,7 @@ public class VisitaDAO extends GenericDAO<Visita, Integer> {
 				+ "join T_CONSUMIDOR c on c.nr_telefone = v.nr_telefone\r\n"
 				+ "join T_ESTABELECIMENTO e on e.nr_cnpj = v.nr_cnpj\r\n"
 				+ "join T_PEDIDO p on p.id_visita = v.id_visita\r\n"
-				+ "where dt_visita > (select (CURRENT_DATE - 365) from dual)\r\n"
+				+ "where v.dt_visita >= (select (CURRENT_DATE - 365) from dual)\r\n"
 				+ "and c.nr_telefone = :nr \r\n"
 				+ "and e.nr_cnpj = :nr_cnpj\r\n"
 				+ "group by v.id_visita";
@@ -66,7 +66,7 @@ public class VisitaDAO extends GenericDAO<Visita, Integer> {
 	}
 	
 	
-	// Listar ticket médio de visitas
+	// Listar bebidas estilos favorito
 	@SuppressWarnings("unchecked")
 	public List<Object[]>BebidaEstiloFavorito(Long nr_telefone, Long nrCnpj) { 
 		String Query =

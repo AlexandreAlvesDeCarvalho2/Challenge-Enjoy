@@ -51,21 +51,19 @@ public class Consumidor {
 	// --------------------- Construtores------------------------
 	public Consumidor() {}
 
-	public Consumidor(int id_consumidor, Long nr_telefone, String nm_consumidor, String email_consumidor,
-			String ds_genreo, Calendar dt_nascimento, List<Visita> visita) {
+	
+	public Consumidor(int id_consumidor, Long nrTelefone, String nmConsumidor, String emailConsumidor, String dsGenreo,
+			Calendar dtNascimento, List<Visita> visita) {
 		super();
 		this.id_consumidor = id_consumidor;
-		this.nrTelefone = nr_telefone;
-		this.nmConsumidor = nm_consumidor;
-		this.emailConsumidor = email_consumidor;
-		this.dsGenreo = ds_genreo;
-		this.dtNascimento = dt_nascimento;
+		this.nrTelefone = nrTelefone;
+		this.nmConsumidor = nmConsumidor;
+		this.emailConsumidor = emailConsumidor;
+		this.dsGenreo = dsGenreo;
+		this.dtNascimento = dtNascimento;
 		this.visita = visita;
 	}
 
-	
-	
-	
 	// ---------------------Getters and Setters------------------------
 	public int getId_consumidor() {
 		return id_consumidor;

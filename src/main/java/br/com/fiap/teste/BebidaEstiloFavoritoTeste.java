@@ -19,7 +19,11 @@ public class BebidaEstiloFavoritoTeste {
 			VisitaDAO dao = new VisitaDAO(em);
 
 			System.out.println("\n----------------Bebida e o estilo favoritos com base no consumo----------------");
-			for (Object[] entidade : dao.BebidaEstiloFavorito(35991028674L, 38382013000145L)) {
+			
+			//telefones no bd para teste: 35991028674, 27976332418 
+			//cnpj no bd para teste: 80464532000119, 20779347000191
+			
+			for (Object[] entidade : dao.BebidaEstiloFavorito(27976332418L, 80464532000119L)) {
 				
 				System.out.println("---------------------------------------------------------------------------------");
 				System.out.println("Cliente: " + entidade[0]);

@@ -25,7 +25,7 @@ public class Pedido {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="pedido")
 	private int idPedido;
 	
-	@Column(name="hr_pedido", nullable = false)
+	@Column(name="hr_pedido", nullable = true)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar hrPedido;
 	
@@ -43,7 +43,7 @@ public class Pedido {
 	
 	// --------------------- relações------------------------
 	@ManyToOne(cascade = CascadeType.PERSIST)
-	@JoinColumn(name = "id_visita")
+	@JoinColumn(name = "id_Visita")
 	private Visita pedidos;
 	
 	
@@ -51,21 +51,25 @@ public class Pedido {
 	// --------------------- Construtores------------------------
 	public Pedido() {}
 
-
-
-	public Pedido(int id_pedido, Calendar hr_pedido, String ds_produto, String ds_tipo_produto, double vl_pedido,
-			double qt_pedido, Visita pedidos) {
+	public Pedido(int idPedido, Calendar hrPedido, String dsProduto, String dsTipoProduto, double vlPedido,
+			double qtPedido, Visita pedidos) {
 		super();
-		this.idPedido = id_pedido;
-		this.hrPedido = hr_pedido;
-		this.dsProduto = ds_produto;
-		this.dsTipoProduto = ds_tipo_produto;
-		this.vlPedido = vl_pedido;
-		this.qtPedido = qt_pedido;
+		this.idPedido = idPedido;
+		this.hrPedido = hrPedido;
+		this.dsProduto = dsProduto;
+		this.dsTipoProduto = dsTipoProduto;
+		this.vlPedido = vlPedido;
+		this.qtPedido = qtPedido;
 		this.pedidos = pedidos;
 	}
 
 	// ---------------------Getters and Setters------------------------
+
+
+
+
+
+
 
 	public int getId_pedido() {
 		return idPedido;

@@ -17,8 +17,11 @@ public class FrequenciaDeVisitasTeste {
 			VisitaDAO dao = new VisitaDAO(em);
 
 			System.out.println(
+					
 					"\n---------------- Qual é a frequência de visitas nos ultimos 365 dias no estabelecimento? ----------------");
-			for (Object[] entidade : dao.ListarFrequenciaDeVisitas(35991028674L, 38382013000145L)) {
+			//telefones no bd para teste: 35991028674, 27976332418 
+			//cnpj no bd para teste: 80464532000119, 20779347000191
+			for (Object[] entidade : dao.ListarFrequenciaDeVisitas(35991028674L, 80464532000119L)) {
 				System.out.println("---------------------------------------------------------------------------------");
 				System.out.println("Cliente: " + entidade[0]);
 				System.out.println("Estabelecimento: " + entidade[1]);
