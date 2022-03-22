@@ -1,6 +1,6 @@
 # Challenge Enjoy
 
-### O desafio da equipe será criar uma modelagem e consultas (Java/Hibernate) de informações comportamentais do consumidor no Onboarding (momento de chegada ao estabelecimento para a retirada do cartão de consumo), exemplos de informações comportamentais que devem ser exibidas na tela de onboarding logo após o preenchimento do telefone:
+#### O desafio da equipe será criar uma modelagem e consultas (Java/Hibernate) de informações comportamentais do consumidor no Onboarding (momento de chegada ao estabelecimento para a retirada do cartão de consumo), exemplos de informações comportamentais que devem ser exibidas na tela de onboarding logo após o preenchimento do telefone:
 
  
 
