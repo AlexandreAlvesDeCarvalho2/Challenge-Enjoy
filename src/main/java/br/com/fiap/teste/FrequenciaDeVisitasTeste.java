@@ -21,11 +21,10 @@ public class FrequenciaDeVisitasTeste {
 					"\n---------------- Qual é a frequência de visitas nos ultimos 365 dias no estabelecimento? ----------------");
 			//telefones no bd para teste: 35991028674, 27976332418 
 			//cnpj no bd para teste: 80464532000119, 20779347000191
-			for (Object[] entidade : dao.ListarFrequenciaDeVisitas(35991028674L, 80464532000119L)) {
+			for (Object[] entidade : dao.ListarFrequenciaDeVisitas(35991028674L)) {
 				System.out.println("---------------------------------------------------------------------------------");
 				System.out.println("Cliente: " + entidade[0]);
-				System.out.println("Estabelecimento: " + entidade[1]);
-				System.out.println("Frequencia: " + entidade[2] + "x nos ultimos 365 dias");
+				System.out.println("Frequencia: " + entidade[1] + "x nos ultimos 365 dias");
 				System.out.println("---------------------------------------------------------------------------------");
 			}
 

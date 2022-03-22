@@ -21,11 +21,10 @@ public class UltimaVisitaEstabelecimentoTeste {
 			System.out.println("\nVisita:");
 			///telefones no bd para teste: 35991028674, 27976332418 
 			//cnpj no bd para teste: 80464532000119, 20779347000191
-			for (Object[] entidade : dao.ListarDataUltimaVisita(35991028674L, 80464532000119L)) {
+			for (Object[] entidade : dao.ListarDataUltimaVisita(35991028674L)) {
 				System.out.println("---------------- Data da ultima Visita no estabelecimento ----------------");
 				System.out.println("Cliente: " + entidade[0]);
-				System.out.println("Estabelecimento: " + entidade[1]);
-				System.out.println("Ultima visita: " + entidade[2]);
+				System.out.println("Ultima visita: " + entidade[1]);
 				System.out.println("---------------------------------------------------------------------------------");
 
 				dao.commit();
